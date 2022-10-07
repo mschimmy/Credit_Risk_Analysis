@@ -14,7 +14,8 @@ The dataset used in the analysis is provided by the client and includes data on 
 
 Before building each machine learning model, the dataset is split into features "X" (input) and the target "y" (output). For this analysis, the target variable is the "loan_status" of each application. The features and target are each split into training and testing sets (X_train, X_test, y_train, and y_test) using sklearn's train_test_split module.
 
-![Splitting the training and testing sets](GITHUB LINK)
+![Splitting the training and testing sets](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/split_training_testing_sets.png)
+
 <sub>Splitting the training and testing sets</sub>
 
 After splitting the data into training and testing sets, each sampling method resamples the data according to its specific algorithm. After resampling, the LogisticRegression model is instantiated and used to train the resampled data and make predictions. A balanced accuracy score, confusion matric, and imbalanced classification report is generated for each resampling technique to evaluate the performance of each model.
@@ -24,32 +25,52 @@ After splitting the data into training and testing sets, each sampling method re
 Once the data has been split into features and the target, and then again into training and testing sets, two oversampling models are built using the RandomOverSampler algorithm and the SMOTE algorithm to resample the data. Once resampled, the LogisticRegression model trains the data.
 
 The RandomOverSampler algorithm randomly selects instances of the minority class (high-risk loans) and adds them to the training set until the majority and minority classes are balanced. The calculated balanced accuracy score for the RandomOverSampler algorithm is 0.663. The generated confusion matrix and imbalanced classification report are below and show the precision and recall scores of this model.
-![RandomOverSampler confusion matrix](GITHUB LINK)
+
+![RandomOverSampler confusion matrix](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/ROS_confusion_matrix.ong.png)
+
 <sub>RandomOverSampler confusion matrix</sub>
-![RandomOverSampler imbalanced classification report](GITHUB LINK)
+
+![RandomOverSampler imbalanced classification report](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/ROS_imbalanced_classification_report.png)
+
 <sub>RandomOverSampler imbalanced classification report</sub>
 
+
 The SMOTE (synthetic minority oversampling technique) interpolates new values from the minority class and adds them to the training set until the majority and minority classes are balanced. The calculated balanced accuracy score for the SMOTE algorithm is 0.658. The generated confusion matrix and imbalanced classification report are below and show the precision and recall scores of this model.
-![SMOTE confusion matrix](GITHUB LINK)
+
+![SMOTE confusion matrix](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/SMOTE_confusion_matrix.png)
+
 <sub>SMOTE confusion matrix</sub>
-![SMOTE imbalanced classification report](GITHUB LINK)
+
+![SMOTE imbalanced classification report](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/SMOTE_imbalanced_classification_report.png)
+
 <sub>SMOTE imbalanced classification report</sub>
+
 
 ### Undersampling
 
 The ClusterCentroids algorithm is used to undersample the data. It does so by identifying clusters of the majority class (low-risk loans),  generating synthetic data points called centroids that are representatives of the clusters, and then removing values from the majority class until the size of the majority class is reduced to that of the minority class. The calculated balanced accuracy score for the ClusterCentroids algorithm is 0.544. The generated confusion matrix and imbalanced classification report are below and show the precision and recall scores of this model.
-![ClusterCentroids confusion matrix](GITHUB LINK)
+
+![ClusterCentroids confusion matrix](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/ClusterCentroids_confusion_matrix.png)
+
 <sub>ClusterCentroids confusion matrix</sub>
-![ClusterCentroids imbalanced classification report](GITHUB LINK)
+
+![ClusterCentroids imbalanced classification report](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/ClusterCentroids_imbalanced_classification_report.png)
+
 <sub>ClusterCentroids imbalanced classification report</sub>
+
 
 ### Combination of Over- and Undersampling
 
 The SMOTEENN algorithm is used to over- and undersample the data. SMOTEENN combines the SMOTE algorithm with the EEN (edited nearest neighbors) algorithm. SMOTEENN oversamples the minority class with SMOTE and then cleans the resulting data with the ENN undersampling strategy wherein if the two nearest neighbors of a data point belong to two different classes then that data point is dropped. The calculated balanced accuracy score for the SMOTEENN algorithm is 0.679. The generated confusion matrix and imbalanced classification report are below and show the precision and recall scores of this model.
-![SMOTEENN confusion matrix](GITHUB LINK)
+
+![SMOTEENN confusion matrix](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/SMOTEENN_confusion_matrix.png)
+
 <sub>SMOTEENN confusion matrix</sub>
-![SMOTEENN imbalanced classification report](GITHUB LINK)
+
+![SMOTEENN imbalanced classification report](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/SMOTEENN_imbalanced_classification_report.png)
+
 <sub>SMOTEENN imbalanced classification report</sub>
+
 
 ### Ensemble Classifiers
 
@@ -57,16 +78,25 @@ Ensemble classifiers combine multiple models to help improve the accuracy and ro
 
 The Balanced Random Forest Classifier is used to create 100 estimators that randomly undersampled the data and then trains the data. The calculated balanced accuracy score for the Balanced Random Forest Classifier algorithm is 0.789. The generated confusion matrix and imbalanced classification report are below and show the precision and recall scores of this model.
 The Balanced Random Forest Classifier is then used to rank the importance of features in descending order (from most to least important) to determine which feature has the most impact on the predictions. The top five features ranked by importance were "total_rec_prncp", "total_pymnt", "total_pymnt_inv", "total_rec_int", and "last_pymnt_amnt".
-![Balanced Random Forest Classifier confusion matrix](GITHUB LINK)
+
+![Balanced Random Forest Classifier confusion matrix](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/BRFC_confusion_matrix.png)
+
 <sub>Balanced Random Forest Classifier confusion matrix</sub>
-![Balanced Random Forest Classifier imbalanced classification report](GITHUB LINK)
+
+![Balanced Random Forest Classifier imbalanced classification report](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/BRFC_imbalanced_classification_report.png)
+
 <sub>Balanced Random Forest Classifier imbalanced classification report</sub>
 
 The Easy Ensemble AdaBoost Classifier algorithm is used to create 100 estimators that randomly undersampled the data and then trains the data. The calculated balanced accuracy score for the Easy Ensemble AdaBoost Classifier algorithm is 0.932. The generated confusion matrix and imbalanced classification report are below and show the precision and recall scores of this model.
-![Easy Ensemble AdaBoost Classifier confusion matrix](GITHUB LINK)
+
+![Easy Ensemble AdaBoost Classifier confusion matrix](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/EEAC_confusion_matrix.png)
+
 <sub>Easy Ensemble AdaBoost Classifier confusion matrix</sub>
-![Easy Ensemble AdaBoost Classifier imbalanced classification report](GITHUB LINK)
+
+![Easy Ensemble AdaBoost Classifier imbalanced classification report](https://github.com/mschimmy/Credit_Risk_Analysis/blob/main/Images/EEAC_imbalanced_classification_report.png)
+
 <sub>Easy Ensemble AdaBoost Classifier imbalanced classification report</sub>
+
 
 ## Summary
 
